@@ -5,8 +5,12 @@
 
 #region Usings
 
+using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using FFXIVAPP.Common.Models;
+using FFXIVAPP.Common.ViewModelBase;
 
 #endregion
 
@@ -27,7 +31,14 @@ namespace FFXIVAPP.Plugin.Log.ViewModels
 
         #region Declarations
 
+        public DelegateCommand OpenWebSiteCommand { get; private set; }
+
         #endregion
+
+        public AboutViewModel()
+        {
+            OpenWebSiteCommand = new DelegateCommand(OpenWebSite);
+        }
 
         #region Loading Functions
 
@@ -38,6 +49,22 @@ namespace FFXIVAPP.Plugin.Log.ViewModels
         #endregion
 
         #region Command Bindings
+
+        public void OpenWebSite()
+        {
+            try
+            {
+                Process.Start("https://github.com/icehunter/ffxivapp-plugin-log");
+            }
+            catch (Exception ex)
+            {
+                var popupContent = new PopupContent();
+                popupContent.Title = PluginViewModel.Instance.Locale["app_WarningMessage"];
+                popupContent.Message = ex.Message;
+                bool popupDisplayed;
+                Plugin.PHost.PopupMessage(Plugin.PName, out popupDisplayed, popupContent);
+            }
+        }
 
         #endregion
 
