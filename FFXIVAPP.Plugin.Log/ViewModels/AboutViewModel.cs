@@ -61,8 +61,7 @@ namespace FFXIVAPP.Plugin.Log.ViewModels
                 var popupContent = new PopupContent();
                 popupContent.Title = PluginViewModel.Instance.Locale["app_WarningMessage"];
                 popupContent.Message = ex.Message;
-                bool popupDisplayed;
-                Plugin.PHost.PopupMessage(Plugin.PName, out popupDisplayed, popupContent);
+                Plugin.PHost.PopupMessage(Plugin.PName, popupContent);
             }
         }
 
