@@ -3,8 +3,6 @@
 // 
 // Copyright © 2013 ZAM Network LLC
 
-#region Usings
-
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,8 +11,6 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using FFXIVAPP.Common.Events;
 using FFXIVAPP.Common.Helpers;
-
-#endregion
 
 namespace FFXIVAPP.Plugin.Log
 {

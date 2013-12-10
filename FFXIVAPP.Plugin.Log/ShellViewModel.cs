@@ -3,16 +3,12 @@
 // 
 // Copyright © 2013 ZAM Network LLC
 
-#region Usings
-
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using FFXIVAPP.Plugin.Log.Properties;
 using FFXIVAPP.Plugin.Log.Views;
-
-#endregion
 
 namespace FFXIVAPP.Plugin.Log
 {

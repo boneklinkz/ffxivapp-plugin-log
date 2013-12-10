@@ -3,14 +3,10 @@
 // 
 // Copyright © 2013 ZAM Network LLC
 
-#region Usings
-
 using System.Windows;
 using System.Windows.Media;
 using FFXIVAPP.Common.Controls;
 using FFXIVAPP.Plugin.Log.Properties;
-
-#endregion
 
 namespace FFXIVAPP.Plugin.Log.Helpers
 {

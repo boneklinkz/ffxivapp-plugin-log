@@ -3,8 +3,6 @@
 // 
 // Copyright © 2013 ZAM Network LLC
 
-#region Usings
-
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -14,20 +12,16 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using FFXIVAPP.Common.Controls;
 using FFXIVAPP.Common.Helpers;
 using FFXIVAPP.Common.Models;
 using FFXIVAPP.Common.Utilities;
-using FFXIVAPP.Plugin.Log.Views;
 using NLog;
 using Color = System.Windows.Media.Color;
 using ColorConverter = System.Windows.Media.ColorConverter;
 using FontFamily = System.Drawing.FontFamily;
-
-#endregion
 
 namespace FFXIVAPP.Plugin.Log.Properties
 {

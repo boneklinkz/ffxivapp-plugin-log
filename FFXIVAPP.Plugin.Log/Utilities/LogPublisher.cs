@@ -3,14 +3,11 @@
 // 
 // Copyright © 2013 ZAM Network LLC
 
-#region Usings
-
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Windows;
 using System.Windows.Controls;
 using FFXIVAPP.Common.Controls;
 using FFXIVAPP.Common.Core.Memory;
@@ -20,8 +17,6 @@ using FFXIVAPP.Common.Utilities;
 using FFXIVAPP.Plugin.Log.Properties;
 using FFXIVAPP.Plugin.Log.Views;
 using NLog;
-
-#endregion
 
 namespace FFXIVAPP.Plugin.Log.Utilities
 {

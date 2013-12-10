@@ -3,11 +3,7 @@
 // 
 // Copyright © 2013 ZAM Network LLC
 
-#region Usings
-
 using System.Windows;
-
-#endregion
 
 namespace FFXIVAPP.Plugin.Log.Localization
 {

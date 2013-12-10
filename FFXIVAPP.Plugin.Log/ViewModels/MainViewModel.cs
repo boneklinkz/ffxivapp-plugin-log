@@ -3,8 +3,6 @@
 // 
 // Copyright © 2013 ZAM Network LLC
 
-#region Usings
-
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -16,8 +14,6 @@ using FFXIVAPP.Common.ViewModelBase;
 using FFXIVAPP.Plugin.Log.Properties;
 using FFXIVAPP.Plugin.Log.Utilities;
 using FFXIVAPP.Plugin.Log.Views;
-
-#endregion
 
 namespace FFXIVAPP.Plugin.Log.ViewModels
 {

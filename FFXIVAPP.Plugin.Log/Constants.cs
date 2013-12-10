@@ -3,16 +3,12 @@
 // 
 // Copyright © 2013 ZAM Network LLC
 
-#region Usings
-
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Xml.Linq;
 using FFXIVAPP.Common.Helpers;
-
-#endregion
 
 namespace FFXIVAPP.Plugin.Log
 {

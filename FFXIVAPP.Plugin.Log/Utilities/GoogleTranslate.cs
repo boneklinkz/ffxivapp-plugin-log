@@ -3,8 +3,6 @@
 // 
 // Copyright © 2013 ZAM Network LLC
 
-#region Usings
-
 using System;
 using System.Collections;
 using System.Net;
@@ -12,8 +10,6 @@ using System.Web;
 using FFXIVAPP.Plugin.Log.Properties;
 using FFXIVAPP.Plugin.Log.Views;
 using HtmlAgilityPack;
-
-#endregion
 
 namespace FFXIVAPP.Plugin.Log.Utilities
 {

@@ -3,8 +3,6 @@
 // 
 // Copyright © 2013 ZAM Network LLC
 
-#region Usings
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +10,6 @@ using System.ComponentModel.Composition;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
-using FFXIVAPP.Common.Core.Memory;
 using FFXIVAPP.Common.Events;
 using FFXIVAPP.Common.Helpers;
 using FFXIVAPP.Common.Utilities;
@@ -22,8 +19,6 @@ using FFXIVAPP.Plugin.Log.Helpers;
 using FFXIVAPP.Plugin.Log.Properties;
 using FFXIVAPP.Plugin.Log.Utilities;
 using NLog;
-
-#endregion
 
 namespace FFXIVAPP.Plugin.Log
 {
@@ -46,6 +41,12 @@ namespace FFXIVAPP.Plugin.Log
         private string _name;
         private MessageBoxResult _popupResult;
 
+        public IPluginHost Host
+        {
+            get { return _host; }
+            set { PHost = _host = value; }
+        }
+
         public MessageBoxResult PopupResult
         {
             get { return _popupResult; }
@@ -54,12 +55,6 @@ namespace FFXIVAPP.Plugin.Log
                 _popupResult = value;
                 PluginViewModel.Instance.OnPopupResultChanged(new PopupResultEvent(value));
             }
-        }
-
-        public IPluginHost Host
-        {
-            get { return _host; }
-            set { PHost = _host = value; }
         }
 
         public Dictionary<string, string> Locale

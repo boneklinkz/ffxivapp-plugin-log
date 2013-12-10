@@ -3,15 +3,11 @@
 // 
 // Copyright © 2013 ZAM Network LLC
 
-#region Usings
-
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
 using FFXIVAPP.Common.Controls;
 using FFXIVAPP.Common.Helpers;
 using FFXIVAPP.Plugin.Log.Properties;
-
-#endregion
 
 namespace FFXIVAPP.Plugin.Log.Helpers
 {
