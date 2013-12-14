@@ -134,24 +134,10 @@
                                                                                 Source={StaticResource Settings}}" />
                             </StackPanel>
                         </GroupBox>
-                        <GroupBox Header="{Binding Locale[log_SendToEchoHeader],
-                                                   Source={StaticResource PluginViewModel}}">
-                            <StackPanel>
-                                <MetroControls:ToggleSwitch IsChecked="{Binding SendToEcho,
-                                                                                Source={StaticResource Settings}}" />
-                            </StackPanel>
-                        </GroupBox>
-                        <GroupBox Header="{Binding Locale[log_SendToGameHeader],
-                                                   Source={StaticResource PluginViewModel}}">
-                            <StackPanel>
-                                <MetroControls:ToggleSwitch IsChecked="{Binding SendToGame,
-                                                                                Source={StaticResource Settings}}" />
-                            </StackPanel>
-                        </GroupBox>
                         <GroupBox Header="{Binding Locale[log_UseRomanizationHeader],
                                                    Source={StaticResource PluginViewModel}}">
                             <StackPanel>
-                                <MetroControls:ToggleSwitch IsChecked="{Binding SendRomanization,
+                                <MetroControls:ToggleSwitch IsChecked="{Binding UseRomanization,
                                                                                 Source={StaticResource Settings}}" />
                             </StackPanel>
                         </GroupBox>

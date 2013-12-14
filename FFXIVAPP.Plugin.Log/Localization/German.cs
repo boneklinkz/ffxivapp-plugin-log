@@ -26,8 +26,6 @@ namespace FFXIVAPP.Plugin.Log.Localization
             Dictionary.Add("log_EnableTranslateHeader", "Übersetzen Aktivieren");
             Dictionary.Add("log_RegExLabel", "RegEx:");
             Dictionary.Add("log_UseRomanizationHeader", "Romanisierung benutzen");
-            Dictionary.Add("log_SendToEchoHeader", "An Echo senden");
-            Dictionary.Add("log_SendToGameHeader", "Ans Spiel senden");
             Dictionary.Add("log_ShowASCIIDebugHeader", "Ascii Debug zeigen");
             Dictionary.Add("log_TabNameLabel", "Tab Name");
             Dictionary.Add("log_TranslateLSHeader", "LS übersetzen");

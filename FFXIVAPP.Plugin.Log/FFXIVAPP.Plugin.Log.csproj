@@ -92,7 +92,7 @@
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShellViewModel.cs" />
-    <Compile Include="Utilities\GoogleTranslate.cs" />
+    <Compile Include="Utilities\Translate.cs" />
     <Compile Include="Utilities\LogPublisher.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />

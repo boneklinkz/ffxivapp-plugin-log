@@ -8,8 +8,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Input;
 using FFXIVAPP.Common.RegularExpressions;
+using FFXIVAPP.Common.Utilities;
 using FFXIVAPP.Common.ViewModelBase;
 using FFXIVAPP.Plugin.Log.Properties;
 using FFXIVAPP.Plugin.Log.Utilities;
@@ -82,23 +84,8 @@ namespace FFXIVAPP.Plugin.Log.ViewModels
             {
                 return;
             }
-            var tmpTranString = GoogleTranslate.TranslateText(value, "en", outLang, false);
-            MainView.View.Chatter.Text = tmpTranString;
-            if (!Settings.Default.SendToGame)
-            {
-                return;
-            }
-            var chatMode = MainView.View.CM.Text.Trim();
-            var match = TranalateIsValid.Match(chatMode);
-            if (!match.Success)
-            {
-                return;
-            }
-            var command = String.Format("{0} {1}", chatMode, tmpTranString);
-            //Plugin.PHost.Commands(Plugin.PName, new[]
-            //{
-            //    command
-            //});
+            var tmpTranString = Translate.GetManualResult(value, outLang, false);
+            MainView.View.Chatter.Text = tmpTranString.Translated;
         }
 
         #endregion

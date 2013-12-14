@@ -74,15 +74,6 @@
                                             Source={StaticResource Settings}}"
                       SelectedValue="{Binding ManualTranslate,
                                               Source={StaticResource Settings}}" />
-            <TextBox x:Name="CM"
-                     MinWidth="30"
-                     MaxWidth="120"
-                     Margin="3"
-                     VerticalAlignment="Center"
-                     Text="/p"
-                     Visibility="{Binding SendToGame,
-                                          Converter={StaticResource VisibilityConverter},
-                                          Source={StaticResource Settings}}" />
             <TextBox x:Name="Chatter"
                      Margin="3"
                      VerticalAlignment="Center">

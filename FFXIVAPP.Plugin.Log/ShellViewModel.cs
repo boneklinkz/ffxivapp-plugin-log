@@ -33,13 +33,14 @@ namespace FFXIVAPP.Plugin.Log
         {
             Initializer.LoadSettings();
             Initializer.LoadTabs();
+            Settings.Default.PropertyChanged += DefaultOnPropertyChanged;
         }
 
         internal static void Loaded(object sender, RoutedEventArgs e)
         {
+            ShellView.View.Loaded -= Loaded;
             Initializer.ApplyTheming();
             MainView.View.MainViewTC.SelectedIndex = Settings.Default.EnableAll ? 0 : 1;
-            Settings.Default.PropertyChanged += DefaultOnPropertyChanged;
         }
 
         private static void DefaultOnPropertyChanged(object sender, PropertyChangedEventArgs e)

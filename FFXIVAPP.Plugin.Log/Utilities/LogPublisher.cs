@@ -93,31 +93,31 @@ namespace FFXIVAPP.Plugin.Log.Utilities
                 {
                     if (CheckMode(chatLogEntry.Code, Constants.ChatSay) && Settings.Default.TranslateSay)
                     {
-                        GoogleTranslate.RetreiveLang(rawLine, chatLogEntry.JP);
+                        Translate.GetAutomaticResult(rawLine, chatLogEntry.JP);
                     }
                     if (CheckMode(chatLogEntry.Code, Constants.ChatTell) && Settings.Default.TranslateTell)
                     {
-                        GoogleTranslate.RetreiveLang(rawLine, chatLogEntry.JP);
+                        Translate.GetAutomaticResult(rawLine, chatLogEntry.JP);
                     }
                     if (CheckMode(chatLogEntry.Code, Constants.ChatParty) && Settings.Default.TranslateParty)
                     {
-                        GoogleTranslate.RetreiveLang(rawLine, chatLogEntry.JP);
+                        Translate.GetAutomaticResult(rawLine, chatLogEntry.JP);
                     }
                     if (CheckMode(chatLogEntry.Code, Constants.ChatShout) && Settings.Default.TranslateShout)
                     {
-                        GoogleTranslate.RetreiveLang(rawLine, chatLogEntry.JP);
+                        Translate.GetAutomaticResult(rawLine, chatLogEntry.JP);
                     }
                     if (CheckMode(chatLogEntry.Code, Constants.ChatYell) && Settings.Default.TranslateYell)
                     {
-                        GoogleTranslate.RetreiveLang(rawLine, chatLogEntry.JP);
+                        Translate.GetAutomaticResult(rawLine, chatLogEntry.JP);
                     }
                     if (CheckMode(chatLogEntry.Code, Constants.ChatLS) && Settings.Default.TranslateLS)
                     {
-                        GoogleTranslate.RetreiveLang(rawLine, chatLogEntry.JP);
+                        Translate.GetAutomaticResult(rawLine, chatLogEntry.JP);
                     }
                     if (CheckMode(chatLogEntry.Code, Constants.ChatFC) && Settings.Default.TranslateFC)
                     {
-                        GoogleTranslate.RetreiveLang(rawLine, chatLogEntry.JP);
+                        Translate.GetAutomaticResult(rawLine, chatLogEntry.JP);
                     }
                 }
                 // handle debug tab

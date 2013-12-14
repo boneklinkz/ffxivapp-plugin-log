@@ -95,9 +95,7 @@ namespace FFXIVAPP.Plugin.Log.Properties
             Constants.Settings.Add("EnableDebug");
             Constants.Settings.Add("ShowASCIIDebug");
             Constants.Settings.Add("EnableTranslate");
-            Constants.Settings.Add("SendToEcho");
-            Constants.Settings.Add("SendToGame");
-            Constants.Settings.Add("SendRomanization");
+            Constants.Settings.Add("UseRomanization");
             Constants.Settings.Add("TranslateTo");
             Constants.Settings.Add("ManualTranslate");
             Constants.Settings.Add("TranslateJPOnly");
@@ -259,38 +257,12 @@ namespace FFXIVAPP.Plugin.Log.Properties
         [UserScopedSetting]
         [DebuggerNonUserCode]
         [DefaultSettingValue("False")]
-        public bool SendToEcho
+        public bool UseRomanization
         {
-            get { return ((bool) (this["SendToEcho"])); }
+            get { return ((bool)(this["UseRomanization"])); }
             set
             {
-                this["SendToEcho"] = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        [UserScopedSetting]
-        [DebuggerNonUserCode]
-        [DefaultSettingValue("False")]
-        public bool SendToGame
-        {
-            get { return ((bool) (this["SendToGame"])); }
-            set
-            {
-                this["SendToGame"] = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        [UserScopedSetting]
-        [DebuggerNonUserCode]
-        [DefaultSettingValue("False")]
-        public bool SendRomanization
-        {
-            get { return ((bool) (this["SendRomanization"])); }
-            set
-            {
-                this["SendRomanization"] = value;
+                this["UseRomanization"] = value;
                 RaisePropertyChanged();
             }
         }
