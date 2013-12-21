@@ -190,6 +190,13 @@
                                                                                 Source={StaticResource Settings}}" />
                             </StackPanel>
                         </GroupBox>
+                        <GroupBox Header="{Binding Locale[log_TranslateAllianceHeader],
+                                                   Source={StaticResource PluginViewModel}}">
+                            <StackPanel>
+                                <MetroControls:ToggleSwitch IsChecked="{Binding TranslateAlliance,
+                                                                                Source={StaticResource Settings}}" />
+                            </StackPanel>
+                        </GroupBox>
                         <GroupBox Header="{Binding Locale[log_TranslateShoutHeader],
                                                    Source={StaticResource PluginViewModel}}">
                             <StackPanel>

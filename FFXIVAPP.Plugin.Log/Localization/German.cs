@@ -41,6 +41,7 @@ namespace FFXIVAPP.Plugin.Log.Localization
             Dictionary.Add("log_TranslateTellHeader", "Tell übersetzen");
             Dictionary.Add("log_TranslateYellHeader", "Yell übersetzen");
             Dictionary.Add("log_EnableAllHeader", "Enable All");
+            Dictionary.Add("log_TranslateAllianceHeader", "Alliance");
             return Dictionary;
         }
     }

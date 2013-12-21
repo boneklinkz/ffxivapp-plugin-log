@@ -62,6 +62,11 @@ namespace FFXIVAPP.Plugin.Log
             "0010", "0011", "0012", "0013", "0014", "0015", "0016", "0017"
         };
 
+        public static readonly string[] ChatAlliance =
+        {
+            "000F"
+        };
+
         public static readonly string[] ChatFC =
         {
             "0018"

@@ -104,6 +104,8 @@ namespace FFXIVAPP.Plugin.Log.Properties
             Constants.Settings.Add("TranslateParty");
             Constants.Settings.Add("TranslateLS");
             Constants.Settings.Add("TranslateShout");
+            Constants.Settings.Add("TranslateFC");
+            Constants.Settings.Add("TranslateAlliance");
             Constants.Settings.Add("Zoom");
         }
 
@@ -198,6 +200,19 @@ namespace FFXIVAPP.Plugin.Log.Properties
             set
             {
                 this["ChatFont"] = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        [UserScopedSetting]
+        [DebuggerNonUserCode]
+        [DefaultSettingValue("100")]
+        public Double Zoom
+        {
+            get { return ((Double)(this["Zoom"])); }
+            set
+            {
+                this["Zoom"] = value;
                 RaisePropertyChanged();
             }
         }
@@ -374,6 +389,19 @@ namespace FFXIVAPP.Plugin.Log.Properties
         [UserScopedSetting]
         [DebuggerNonUserCode]
         [DefaultSettingValue("True")]
+        public bool TranslateAlliance
+        {
+            get { return ((bool)(this["TranslateAlliance"])); }
+            set
+            {
+                this["TranslateAlliance"] = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        [UserScopedSetting]
+        [DebuggerNonUserCode]
+        [DefaultSettingValue("True")]
         public bool TranslateShout
         {
             get { return ((bool) (this["TranslateShout"])); }
@@ -393,19 +421,6 @@ namespace FFXIVAPP.Plugin.Log.Properties
             set
             {
                 this["TranslateYell"] = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        [UserScopedSetting]
-        [DebuggerNonUserCode]
-        [DefaultSettingValue("100")]
-        public Double Zoom
-        {
-            get { return ((Double) (this["Zoom"])); }
-            set
-            {
-                this["Zoom"] = value;
                 RaisePropertyChanged();
             }
         }
