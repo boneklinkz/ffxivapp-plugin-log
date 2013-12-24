@@ -209,7 +209,7 @@ namespace FFXIVAPP.Plugin.Log.Properties
         [DefaultSettingValue("100")]
         public Double Zoom
         {
-            get { return ((Double)(this["Zoom"])); }
+            get { return ((Double) (this["Zoom"])); }
             set
             {
                 this["Zoom"] = value;
@@ -274,7 +274,7 @@ namespace FFXIVAPP.Plugin.Log.Properties
         [DefaultSettingValue("False")]
         public bool UseRomanization
         {
-            get { return ((bool)(this["UseRomanization"])); }
+            get { return ((bool) (this["UseRomanization"])); }
             set
             {
                 this["UseRomanization"] = value;
@@ -391,7 +391,7 @@ namespace FFXIVAPP.Plugin.Log.Properties
         [DefaultSettingValue("True")]
         public bool TranslateAlliance
         {
-            get { return ((bool)(this["TranslateAlliance"])); }
+            get { return ((bool) (this["TranslateAlliance"])); }
             set
             {
                 this["TranslateAlliance"] = value;

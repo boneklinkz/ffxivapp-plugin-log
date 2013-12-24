@@ -24,14 +24,17 @@ namespace FFXIVAPP.Plugin.Log.Utilities
             var player = line.Substring(0, line.IndexOf(":", StringComparison.Ordinal)) + ": ";
             var tmpMessage = line.Substring(line.IndexOf(":", StringComparison.Ordinal) + 1);
             var result = ResolveGoogleTranslateResult(tmpMessage, isJP);
-            if (result.Translated.Length <= 0 || String.Equals(line, result.Translated, StringComparison.InvariantCultureIgnoreCase))
+            if (result != null)
             {
-                return new GoogleTranslateResult
+                if (result.Translated.Length <= 0 || String.Equals(line, result.Translated, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    Original = line
-                };
+                    return new GoogleTranslateResult
+                    {
+                        Original = line
+                    };
+                }
             }
-            if (!resultOnly)
+            if (!resultOnly && result != null)
             {
                 Common.Constants.FD.AppendFlow(player, "", result.Translated, new[]
                 {
@@ -59,11 +62,14 @@ namespace FFXIVAPP.Plugin.Log.Utilities
         /// <returns></returns>
         private static GoogleTranslateResult ResolveGoogleTranslateResult(string line, bool isJP)
         {
-            GoogleTranslateResult result;
+            GoogleTranslateResult result = null;
             var outLang = GoogleTranslate.Offsets[Settings.Default.TranslateTo].ToString();
-            if (Settings.Default.TranslateJPOnly && isJP)
+            if (Settings.Default.TranslateJPOnly)
             {
-                result = GoogleTranslate.Translate(line, "ja", outLang, true);
+                if (isJP)
+                {
+                    result = GoogleTranslate.Translate(line, "ja", outLang, true);
+                }
             }
             else
             {

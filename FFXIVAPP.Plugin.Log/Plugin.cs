@@ -14,10 +14,8 @@ using FFXIVAPP.Common.Events;
 using FFXIVAPP.Common.Helpers;
 using FFXIVAPP.Common.Utilities;
 using FFXIVAPP.IPluginInterface;
-using FFXIVAPP.IPluginInterface.Events;
 using FFXIVAPP.Plugin.Log.Helpers;
 using FFXIVAPP.Plugin.Log.Properties;
-using FFXIVAPP.Plugin.Log.Utilities;
 using NLog;
 
 namespace FFXIVAPP.Plugin.Log
@@ -122,6 +120,10 @@ namespace FFXIVAPP.Plugin.Log
              * 
              * Suggested use is to not save settings if updating. Other disposing events could happen based on your needs.
              */
+            if (isUpdating)
+            {
+                return;
+            }
             Settings.Default.Save();
         }
 
