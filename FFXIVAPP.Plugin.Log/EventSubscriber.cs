@@ -21,6 +21,7 @@ namespace FFXIVAPP.Plugin.Log
             Plugin.PHost.NewPlayerEntity += OnNewPlayerEntity;
             Plugin.PHost.NewTargetEntity += OnNewTargetEntity;
             Plugin.PHost.NewParseEntity += OnNewParseEntity;
+            Plugin.PHost.NewPartyEntries += OnNewPartyEntries;
         }
 
         public static void UnSubscribe()
@@ -33,6 +34,7 @@ namespace FFXIVAPP.Plugin.Log
             Plugin.PHost.NewPlayerEntity -= OnNewPlayerEntity;
             Plugin.PHost.NewTargetEntity -= OnNewTargetEntity;
             Plugin.PHost.NewParseEntity -= OnNewParseEntity;
+            Plugin.PHost.NewPartyEntries -= OnNewPartyEntries;
         }
 
         #region Subscriptions
@@ -149,6 +151,16 @@ namespace FFXIVAPP.Plugin.Log
                 return;
             }
             var parseEntity = parseEntityEvent.ParseEntity;
+        }
+
+        private static void OnNewPartyEntries(object sender, PartyEntitiesEvent partyEntitiesEvent)
+        {
+            // delegate event that shows current party basic info
+            if (sender == null)
+            {
+                return;
+            }
+            var partyEntities = partyEntitiesEvent.PartyEntities;
         }
 
         #endregion
