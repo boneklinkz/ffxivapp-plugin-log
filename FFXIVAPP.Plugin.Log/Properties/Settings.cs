@@ -14,6 +14,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Xml.Linq;
 using FFXIVAPP.Common.Controls;
 using FFXIVAPP.Common.Helpers;
 using FFXIVAPP.Common.Models;
@@ -36,55 +37,10 @@ namespace FFXIVAPP.Plugin.Log.Properties
 
         public override void Save()
         {
-            XmlHelper.DeleteXmlNode(Constants.XSettings, "Tab");
-            foreach (var tab in PluginViewModel.Instance.Tabs)
-            {
-                var tabItem = (TabItem) tab;
-                var flowDoc = (xFlowDocument) tabItem.Content;
-                var xKey = tabItem.Header.ToString();
-                var xValue = flowDoc.Codes.Items.Cast<object>()
-                                    .Aggregate("", (c, code) => c + "," + code)
-                                    .Substring(1);
-                var xRegularExpression = flowDoc.RegEx.Text;
-                var keyPairList = new List<XValuePair>();
-                keyPairList.Add(new XValuePair
-                {
-                    Key = "Value",
-                    Value = xValue
-                });
-                keyPairList.Add(new XValuePair
-                {
-                    Key = "RegularExpression",
-                    Value = xRegularExpression
-                });
-                XmlHelper.SaveXmlNode(Constants.XSettings, "Settings", "Tab", xKey, keyPairList);
-            }
-            XmlHelper.DeleteXmlNode(Constants.XSettings, "Setting");
-            if (Constants.Settings.Count == 0)
-            {
-            }
+            // this call to default settings only ensures we keep the settings we want and delete the ones we don't (old)
             DefaultSettings();
-            foreach (var item in Constants.Settings)
-            {
-                try
-                {
-                    var xKey = item;
-                    var xValue = Default[xKey].ToString();
-                    var keyPairList = new List<XValuePair>
-                    {
-                        new XValuePair
-                        {
-                            Key = "Value",
-                            Value = xValue
-                        }
-                    };
-                    XmlHelper.SaveXmlNode(Constants.XSettings, "Settings", "Setting", xKey, keyPairList);
-                }
-                catch (Exception ex)
-                {
-                    Logging.Log(LogManager.GetCurrentClassLogger(), "", ex);
-                }
-            }
+            SaveSettingsNode();
+            SaveTabsNode();
             Constants.XSettings.Save(Constants.BaseDirectory + "Settings.xml");
         }
 
@@ -487,6 +443,103 @@ namespace FFXIVAPP.Plugin.Log.Properties
         private void RaisePropertyChanged([CallerMemberName] string caller = "")
         {
             PropertyChanged(this, new PropertyChangedEventArgs(caller));
+        }
+
+        #endregion
+
+        #region Iterative Settings Saving
+
+        private void SaveSettingsNode()
+        {
+            if (Constants.XSettings == null)
+            {
+                return;
+            }
+            var xElements = Constants.XSettings.Descendants()
+                                     .Elements("Setting");
+            var enumerable = xElements as XElement[] ?? xElements.ToArray();
+            foreach (var setting in Constants.Settings)
+            {
+                var element = enumerable.FirstOrDefault(e => e.Attribute("Key")
+                                                              .Value == setting);
+                if (element == null)
+                {
+                    var xKey = setting;
+                    var xValue = Default[xKey].ToString();
+                    var keyPairList = new List<XValuePair>
+                    {
+                        new XValuePair
+                        {
+                            Key = "Value",
+                            Value = xValue
+                        }
+                    };
+                    XmlHelper.SaveXmlNode(Constants.XSettings, "Settings", "Setting", xKey, keyPairList);
+                }
+                else
+                {
+                    var xElement = element.Element("Value");
+                    if (xElement != null)
+                    {
+                        xElement.Value = Default[setting].ToString();
+                    }
+                }
+            }
+        }
+
+        private void SaveTabsNode()
+        {
+            if (Constants.XSettings == null)
+            {
+                return;
+            }
+            Constants.XSettings.Descendants("Tab")
+                     .Where(node => PluginViewModel.Instance.Tabs.All(t => ((TabItem) t).Header.ToString() != node.Attribute("Key")
+                                                                                                                  .Value))
+                     .Remove();
+            var xElements = Constants.XSettings.Descendants()
+                                     .Elements("Tab");
+            var enumerable = xElements as XElement[] ?? xElements.ToArray();
+            foreach (var tab in PluginViewModel.Instance.Tabs)
+            {
+                var tabItem = (TabItem) tab;
+                var flowDoc = (xFlowDocument) tabItem.Content;
+                var xKey = tabItem.Header.ToString();
+                var xValue = flowDoc.Codes.Items.Cast<object>()
+                                    .Aggregate("", (c, code) => c + "," + code)
+                                    .Substring(1);
+                var xRegularExpression = flowDoc.RegEx.Text;
+                var keyPairList = new List<XValuePair>();
+                keyPairList.Add(new XValuePair
+                {
+                    Key = "Value",
+                    Value = xValue
+                });
+                keyPairList.Add(new XValuePair
+                {
+                    Key = "RegularExpression",
+                    Value = xRegularExpression
+                });
+                var element = enumerable.FirstOrDefault(e => e.Attribute("Key")
+                                                              .Value == xKey);
+                if (element == null)
+                {
+                    XmlHelper.SaveXmlNode(Constants.XSettings, "Settings", "Tab", xKey, keyPairList);
+                }
+                else
+                {
+                    var xValueElement = element.Element("Value");
+                    if (xValueElement != null)
+                    {
+                        xValueElement.Value = xValue;
+                    }
+                    var xRegularExpressionElement = element.Element("RegularExpression");
+                    if (xRegularExpressionElement != null)
+                    {
+                        xRegularExpressionElement.Value = xRegularExpression;
+                    }
+                }
+            }
         }
 
         #endregion
