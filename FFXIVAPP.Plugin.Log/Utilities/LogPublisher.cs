@@ -119,6 +119,10 @@ namespace FFXIVAPP.Plugin.Log.Utilities
                     {
                         Translate.GetAutomaticResult(rawLine, chatLogEntry.JP);
                     }
+                    if (CheckMode(chatLogEntry.Code, Constants.ChatAlliance) && Settings.Default.TranslateAlliance)
+                    {
+                        Translate.GetAutomaticResult(rawLine, chatLogEntry.JP);
+                    }
                 }
                 // handle debug tab
                 if (Settings.Default.ShowASCIIDebug)
