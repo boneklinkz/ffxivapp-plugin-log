@@ -16,6 +16,6 @@ The structure of the directories can be seen here:
 http://github.com/icehunter/ffxivapp
 
 ## Short Tutorial (Plugin Installation)
-<a href="http://youtu.be/QEHYKjp4DjY" target="_blank">
-    <img src="http://i1.ytimg.com/vi/QEHYKjp4DjY/mqdefault.jpg" />
+<a href="http://youtu.be/o2WQSQk-a6E" target="_blank">
+    <img src="http://i1.ytimg.com/vi/o2WQSQk-a6E/mqdefault.jpg" />
 </a>
