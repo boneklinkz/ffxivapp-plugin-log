@@ -83,7 +83,7 @@ namespace FFXIVAPP.Plugin.Log.ViewModels
                 return;
             }
             var tmpTranString = Translate.GetManualResult(value, outLang, false);
-            MainView.View.Chatter.Text = tmpTranString.Translated;
+            MainView.View.Chatter.Text = Settings.Default.UseRomanization ? tmpTranString.Romanization : tmpTranString.Translated;
         }
 
         #endregion

@@ -41,7 +41,7 @@ namespace FFXIVAPP.Plugin.Log.Properties
             DefaultSettings();
             SaveSettingsNode();
             SaveTabsNode();
-            Constants.XSettings.Save(Constants.BaseDirectory + "Settings.xml");
+            Constants.XSettings.Save(Common.Constants.PluginsSettingsPath + "FFXIVAPP.Plugin.Log.xml");
         }
 
         private void DefaultSettings()
