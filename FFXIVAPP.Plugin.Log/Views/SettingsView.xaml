@@ -64,49 +64,44 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="33" />
                     </Grid.RowDefinitions>
-                    <DockPanel Grid.Row="0">
-                        <DockPanel Margin="3"
-                                   DockPanel.Dock="Top">
-                            <Label VerticalContentAlignment="Center"
-                                   Content="{Binding Locale[log_RegExLabel],
-                                                     Source={StaticResource PluginViewModel}}" />
-                            <TextBox x:Name="TRegEx"
-                                     VerticalContentAlignment="Center"
-                                     Text="*" />
-                            <Label VerticalContentAlignment="Center"
-                                   Content="{Binding Locale[log_TabNameLabel],
-                                                     Source={StaticResource PluginViewModel}}" />
-                            <TextBox x:Name="TName"
-                                     VerticalContentAlignment="Center" />
-                        </DockPanel>
+                    <DockPanel Grid.Row="0"
+                               Margin="3">
+                        <Label VerticalContentAlignment="Center"
+                               Content="{Binding Locale[log_RegExLabel],
+                                                 Source={StaticResource PluginViewModel}}" />
+                        <TextBox x:Name="TRegEx"
+                                 VerticalContentAlignment="Center"
+                                 Text="*" />
+                        <Label VerticalContentAlignment="Center"
+                               Content="{Binding Locale[log_TabNameLabel],
+                                                 Source={StaticResource PluginViewModel}}" />
+                        <TextBox x:Name="TName"
+                                 VerticalContentAlignment="Center" />
                     </DockPanel>
-                    <DockPanel Grid.Row="1">
-                        <DataGrid x:Name="Codes"
-                                  AutoGenerateColumns="False"
-                                  BorderBrush="{DynamicResource AccentColorBrush}"
-                                  BorderThickness="1"
-                                  ItemsSource="{Binding ChatCodes,
-                                                        Source={StaticResource PluginViewModel}}">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding Key}"
-                                                    Header="{Binding Locale[app_CodeHeader],
-                                                                     Source={StaticResource PluginViewModel}}"
-                                                    Utilities:GridViewSort.PropertyName="Key" />
-                                <DataGridTextColumn Binding="{Binding Value}"
-                                                    Header="{Binding Locale[app_DescriptionHeader],
-                                                                     Source={StaticResource PluginViewModel}}"
-                                                    Utilities:GridViewSort.PropertyName="Value" />
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </DockPanel>
-                    <DockPanel Grid.Row="2">
-                        <DockPanel DockPanel.Dock="Bottom"
-                                   LastChildFill="True">
-                            <Button Margin="3"
-                                    Command="{Binding AddTabCommand}"
-                                    Content="{Binding Locale[log_AddTabButtonText],
-                                                      Source={StaticResource PluginViewModel}}" />
-                        </DockPanel>
+                    <DataGrid x:Name="Codes"
+                              Grid.Row="1"
+                              Margin="3"
+                              AutoGenerateColumns="False"
+                              BorderBrush="{DynamicResource AccentColorBrush}"
+                              BorderThickness="1"
+                              ItemsSource="{Binding ChatCodes,
+                                                    Source={StaticResource PluginViewModel}}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Key}"
+                                                Header="{Binding Locale[app_CodeHeader],
+                                                                 Source={StaticResource PluginViewModel}}"
+                                                Utilities:GridViewSort.PropertyName="Key" />
+                            <DataGridTextColumn Binding="{Binding Value}"
+                                                Header="{Binding Locale[app_DescriptionHeader],
+                                                                 Source={StaticResource PluginViewModel}}"
+                                                Utilities:GridViewSort.PropertyName="Value" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DockPanel Grid.Row="2"
+                               Margin="3">
+                        <Button Command="{Binding AddTabCommand}"
+                                Content="{Binding Locale[log_AddTabButtonText],
+                                                  Source={StaticResource PluginViewModel}}" />
                     </DockPanel>
                 </Grid>
             </TabItem>

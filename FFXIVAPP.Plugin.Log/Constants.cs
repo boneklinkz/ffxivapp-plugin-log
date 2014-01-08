@@ -26,6 +26,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Reflection;
 using System.Xml.Linq;
 using FFXIVAPP.Common.Helpers;
 
@@ -34,8 +35,6 @@ namespace FFXIVAPP.Plugin.Log
     public static class Constants
     {
         #region Declarations
-
-        public const string BaseDirectory = "./Plugins/FFXIVAPP.Plugin.Log/";
 
         public const string LibraryPack = "pack://application:,,,/FFXIVAPP.Plugin.Log;component/";
 
@@ -91,6 +90,15 @@ namespace FFXIVAPP.Plugin.Log
             "0018"
         };
 
+        public static string BaseDirectory
+        {
+            get
+            {
+                return Path.GetDirectoryName(Assembly.GetExecutingAssembly()
+                                                     .Location);
+            }
+        }
+
         public static Dictionary<string, string> Linkshells
         {
             get
@@ -120,7 +128,7 @@ namespace FFXIVAPP.Plugin.Log
         {
             get
             {
-                var file = Common.Constants.PluginsSettingsPath + "FFXIVAPP.Plugin.Log.xml";
+                var file = Path.Combine(Common.Constants.PluginsSettingsPath, "FFXIVAPP.Plugin.Log.xml");
                 var legacyFile = "./Plugins/FFXIVAPP.Plugin.Log/Settings.xml";
                 if (_xSettings != null)
                 {

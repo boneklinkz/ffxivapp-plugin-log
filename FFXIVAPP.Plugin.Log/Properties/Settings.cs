@@ -29,6 +29,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Controls;
@@ -60,7 +61,7 @@ namespace FFXIVAPP.Plugin.Log.Properties
             DefaultSettings();
             SaveSettingsNode();
             SaveTabsNode();
-            Constants.XSettings.Save(Common.Constants.PluginsSettingsPath + "FFXIVAPP.Plugin.Log.xml");
+            Constants.XSettings.Save(Path.Combine(Common.Constants.PluginsSettingsPath, "FFXIVAPP.Plugin.Log.xml"));
         }
 
         private void DefaultSettings()
