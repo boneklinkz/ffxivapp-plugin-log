@@ -23,6 +23,7 @@
 // USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
 
 using System;
+using System.Globalization;
 using System.Windows.Controls;
 using System.Xml.Linq;
 using FFXIVAPP.Common.Controls;
@@ -44,6 +45,7 @@ namespace FFXIVAPP.Plugin.Log
         {
             if (Constants.XSettings != null)
             {
+                Settings.Default.Reset();
                 foreach (var xElement in Constants.XSettings.Descendants()
                                                   .Elements("Setting"))
                 {
@@ -53,8 +55,11 @@ namespace FFXIVAPP.Plugin.Log
                     {
                         return;
                     }
-                    Settings.SetValue(xKey, xValue);
-                    if (!Constants.Settings.Contains(xKey))
+                    if (Constants.Settings.Contains(xKey))
+                    {
+                        Settings.SetValue(xKey, xValue, CultureInfo.InvariantCulture);
+                    }
+                    else
                     {
                         Constants.Settings.Add(xKey);
                     }
