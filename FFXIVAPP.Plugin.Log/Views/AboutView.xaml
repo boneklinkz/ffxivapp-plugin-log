@@ -29,7 +29,6 @@
             <Setter Property="Control.Foreground" Value="White" />
             <Setter Property="FrameworkElement.HorizontalAlignment" Value="Left" />
         </Style>
-
     </UserControl.Resources>
 
     <ScrollViewer>
@@ -58,14 +57,15 @@
                         Background="{DynamicResource AccentColorBrush}"
                         BorderBrush="{DynamicResource AccentColorBrush}"
                         BorderThickness="1" />
-                <Label x:Name="PluginName"
-                       Content="{Binding PluginInfo[Name],
-                                         Source={StaticResource PluginViewModel}}"
-                       Visibility="Collapsed" />
-                <Label x:Name="PluginIcon"
-                       Content="{Binding PluginInfo[Icon],
-                                         Source={StaticResource PluginViewModel}}"
-                       Visibility="Collapsed" />
+                <TextBlock x:Name="PluginName"
+                           Padding="5"
+                           Text="{Binding PluginInfo[Name],
+                                          Source={StaticResource PluginViewModel}}"
+                           Visibility="Collapsed" />
+                <TextBlock x:Name="PluginIcon"
+                           Text="{Binding PluginInfo[Icon],
+                                          Source={StaticResource PluginViewModel}}"
+                           Visibility="Collapsed" />
                 <Image Grid.Row="1"
                        Grid.RowSpan="3"
                        Grid.Column="2"
@@ -77,9 +77,9 @@
                             <MultiBinding.Bindings>
                                 <Binding Source="{StaticResource PluginViewModel}" />
                                 <Binding ElementName="PluginName"
-                                         Path="Content" />
+                                         Path="Text" />
                                 <Binding ElementName="PluginIcon"
-                                         Path="Content" />
+                                         Path="Text" />
                             </MultiBinding.Bindings>
                         </MultiBinding>
                     </Image.Source>
@@ -104,7 +104,7 @@
                         BorderBrush="{DynamicResource AccentColorBrush}"
                         BorderThickness="1 0" />
                 <Border Grid.Row="4"
-                        Grid.RowSpan="3"
+                        Grid.RowSpan="2"
                         Grid.Column="0"
                         Grid.ColumnSpan="5"
                         BorderBrush="{DynamicResource AccentColorBrush}"
@@ -119,30 +119,30 @@
                             <StackPanel x:Name="PluginsNamesPanel"
                                         Grid.Column="0"
                                         HorizontalAlignment="Left">
-                                <Label Content="{Binding Locale[app_DescriptionLabel],
-                                                         Source={StaticResource PluginViewModel}}"
-                                       Style="{StaticResource LabelStyle}" />
-                                <Label Content="{Binding Locale[app_CopyrightLabel],
-                                                         Source={StaticResource PluginViewModel}}"
-                                       Style="{StaticResource LabelStyle}" />
-                                <Label Content="{Binding Locale[app_VersionLabel],
-                                                         Source={StaticResource PluginViewModel}}"
-                                       Style="{StaticResource LabelStyle}" />
+                                <TextBlock Style="{StaticResource LabelStyle}"
+                                           Text="{Binding Locale[app_DescriptionLabel],
+                                                          Source={StaticResource PluginViewModel}}" />
+                                <TextBlock Style="{StaticResource LabelStyle}"
+                                           Text="{Binding Locale[app_CopyrightLabel],
+                                                          Source={StaticResource PluginViewModel}}" />
+                                <TextBlock Style="{StaticResource LabelStyle}"
+                                           Text="{Binding Locale[app_VersionLabel],
+                                                          Source={StaticResource PluginViewModel}}" />
                             </StackPanel>
                         </DockPanel>
                         <DockPanel Margin="5 0">
                             <StackPanel Grid.Column="1"
                                         Height="Auto"
                                         HorizontalAlignment="Left">
-                                <Label Content="{Binding PluginInfo[Description],
-                                                         Source={StaticResource PluginViewModel}}"
-                                       Style="{StaticResource LabelStyle}" />
-                                <Label Content="{Binding PluginInfo[Copyright],
-                                                         Source={StaticResource PluginViewModel}}"
-                                       Style="{StaticResource LabelStyle}" />
-                                <Label Content="{Binding PluginInfo[Version],
-                                                         Source={StaticResource PluginViewModel}}"
-                                       Style="{StaticResource LabelStyle}" />
+                                <TextBlock Style="{StaticResource LabelStyle}"
+                                           Text="{Binding PluginInfo[Description],
+                                                          Source={StaticResource PluginViewModel}}" />
+                                <TextBlock Style="{StaticResource LabelStyle}"
+                                           Text="{Binding PluginInfo[Copyright],
+                                                          Source={StaticResource PluginViewModel}}" />
+                                <TextBlock Style="{StaticResource LabelStyle}"
+                                           Text="{Binding PluginInfo[Version],
+                                                          Source={StaticResource PluginViewModel}}" />
                             </StackPanel>
                         </DockPanel>
                     </DockPanel>

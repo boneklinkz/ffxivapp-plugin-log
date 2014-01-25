@@ -66,15 +66,15 @@
                     </Grid.RowDefinitions>
                     <DockPanel Grid.Row="0"
                                Margin="3">
-                        <Label VerticalContentAlignment="Center"
-                               Content="{Binding Locale[log_RegExLabel],
-                                                 Source={StaticResource PluginViewModel}}" />
+                        <TextBlock Padding="5"
+                                   Text="{Binding Locale[log_RegExLabel],
+                                                  Source={StaticResource PluginViewModel}}" />
                         <TextBox x:Name="TRegEx"
                                  VerticalContentAlignment="Center"
                                  Text="*" />
-                        <Label VerticalContentAlignment="Center"
-                               Content="{Binding Locale[log_TabNameLabel],
-                                                 Source={StaticResource PluginViewModel}}" />
+                        <TextBlock Padding="5"
+                                   Text="{Binding Locale[log_TabNameLabel],
+                                                  Source={StaticResource PluginViewModel}}" />
                         <TextBox x:Name="TName"
                                  VerticalContentAlignment="Center" />
                     </DockPanel>

@@ -32,12 +32,12 @@
                                Source="/FFXIVAPP.Plugin.Log;component/Media/Images/Main.png"
                                ToolTip="{Binding Locale[app_MainToolTip],
                                                  Source={StaticResource PluginViewModel}}" />
-                        <Label Content="{Binding Locale[app_MainToolTip],
-                                                 Source={StaticResource PluginViewModel}}"
-                               Padding="5"
-                               Visibility="{Binding EnableHelpLabels,
-                                                    Source={StaticResource PluginViewModel},
-                                                    Converter={StaticResource VisibilityConverter}}" />
+                        <TextBlock Padding="5"
+                                   Text="{Binding Locale[app_MainToolTip],
+                                                  Source={StaticResource PluginViewModel}}"
+                                   Visibility="{Binding EnableHelpLabels,
+                                                        Source={StaticResource PluginViewModel},
+                                                        Converter={StaticResource VisibilityConverter}}" />
                     </StackPanel>
                 </TabItem.Header>
                 <views:MainView x:Name="MainV" />
@@ -51,12 +51,12 @@
                                Source="/FFXIVAPP.Plugin.Log;component/Media/Images/Settings.png"
                                ToolTip="{Binding Locale[app_SettingsToolTip],
                                                  Source={StaticResource PluginViewModel}}" />
-                        <Label Content="{Binding Locale[app_SettingsToolTip],
-                                                 Source={StaticResource PluginViewModel}}"
-                               Padding="5"
-                               Visibility="{Binding EnableHelpLabels,
-                                                    Source={StaticResource PluginViewModel},
-                                                    Converter={StaticResource VisibilityConverter}}" />
+                        <TextBlock Padding="5"
+                                   Text="{Binding Locale[app_SettingsToolTip],
+                                                  Source={StaticResource PluginViewModel}}"
+                                   Visibility="{Binding EnableHelpLabels,
+                                                        Source={StaticResource PluginViewModel},
+                                                        Converter={StaticResource VisibilityConverter}}" />
                     </StackPanel>
                 </TabItem.Header>
                 <views:SettingsView x:Name="SettingsV" />
@@ -70,12 +70,12 @@
                                Source="/FFXIVAPP.Plugin.Log;component/Media/Images/About.png"
                                ToolTip="{Binding Locale[app_AboutToolTip],
                                                  Source={StaticResource PluginViewModel}}" />
-                        <Label Content="{Binding Locale[app_AboutToolTip],
-                                                 Source={StaticResource PluginViewModel}}"
-                               Padding="5"
-                               Visibility="{Binding EnableHelpLabels,
-                                                    Source={StaticResource PluginViewModel},
-                                                    Converter={StaticResource VisibilityConverter}}" />
+                        <TextBlock Padding="5"
+                                   Text="{Binding Locale[app_AboutToolTip],
+                                                  Source={StaticResource PluginViewModel}}"
+                                   Visibility="{Binding EnableHelpLabels,
+                                                        Source={StaticResource PluginViewModel},
+                                                        Converter={StaticResource VisibilityConverter}}" />
                     </StackPanel>
                 </TabItem.Header>
                 <views:AboutView x:Name="AboutV" />
