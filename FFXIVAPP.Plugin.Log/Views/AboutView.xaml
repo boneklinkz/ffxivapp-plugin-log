@@ -151,7 +151,8 @@
             <Button Width="200"
                     Command="{Binding OpenWebSiteCommand,
                                       Source={StaticResource AboutViewModel}}"
-                    Content="Open Project Source (GitHub)" />
+                    Content="{Binding Locale[log_GitHubButtonText],
+                                      Source={StaticResource PluginViewModel}}" />
         </StackPanel>
     </ScrollViewer>
 </UserControl>

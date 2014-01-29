@@ -74,6 +74,7 @@ namespace FFXIVAPP.Plugin.Log
             Constants.ServerName = constantsEntity.ServerName;
             Constants.GameLanguage = constantsEntity.GameLanguage;
             Constants.EnableHelpLabels = constantsEntity.EnableHelpLabels;
+            Constants.Theme = constantsEntity.Theme;
             PluginViewModel.Instance.EnableHelpLabels = Constants.EnableHelpLabels;
             PluginViewModel.Instance.ChatCodes = Constants.ChatCodes;
         }
